@@ -15,7 +15,7 @@
         public static ICollection<IEnumerable<T>> SplitOrDefault<T>(this IEnumerable<T> sourceList, int listSize)
         {
             ICollection<IEnumerable<T>> listOfLists = new List<IEnumerable<T>>();
-            if (listSize > sourceList.Count()) { return listOfLists; }
+            if (sourceList == null || listSize > sourceList.Count()) { return listOfLists; }
             for (int i = 0; i < sourceList.Count(); i += listSize)
             {
                 listOfLists.Add(sourceList.Skip(i).Take(listSize));
